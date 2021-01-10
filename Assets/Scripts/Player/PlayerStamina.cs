@@ -11,6 +11,9 @@ public class PlayerStamina : MonoBehaviour
     [SerializeField]
     private float staminaCost;
 
+    [SerializeField]
+    private float staminaRecovery;
+
     // Variables de control
     private float currentStamina;
     private float staminaPercentage;
@@ -34,9 +37,13 @@ public class PlayerStamina : MonoBehaviour
     private void Update()
     {
         if (!available) return;
-        if (!playerRun.isRunning()) return;
-
-        currentStamina -= staminaCost * Time.deltaTime;
+        if (playerRun.isRunning()) {
+            //currentStamina -= staminaCost * Time.deltaTime;
+            currentStamina = Mathf.Max(0f, currentStamina - (staminaCost * Time.deltaTime));
+        } else {
+            //currentStamina += staminaRecovery * Time.deltaTime;
+            currentStamina = Mathf.Min(totalStamina, currentStamina + (staminaRecovery * Time.deltaTime));
+        }
 
         if (currentStamina <= 0f) StartCoroutine(waitAndRecover());
     }
