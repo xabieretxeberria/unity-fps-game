@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStamina : MonoBehaviour
@@ -9,8 +8,17 @@ public class PlayerStamina : MonoBehaviour
     [SerializeField]
     private float totalStamina;
 
+    [SerializeField]
+    private float staminaCost;
+
+    // Variables de control
     private float currentStamina;
+    private float staminaPercentage;
     private bool available;
+
+    //UI
+    [SerializeField]
+    private RectTransform staminaBarRT;
 
     private void Awake()
     {
@@ -28,9 +36,15 @@ public class PlayerStamina : MonoBehaviour
         if (!available) return;
         if (!playerRun.isRunning()) return;
 
-        currentStamina -= Time.deltaTime;
+        currentStamina -= staminaCost * Time.deltaTime;
 
         if (currentStamina <= 0f) StartCoroutine(waitAndRecover());
+    }
+
+    private void OnGUI()
+    {
+        staminaPercentage = Mathf.Clamp(currentStamina / totalStamina, 0f, 1f);
+        staminaBarRT.localScale = new Vector3(staminaPercentage, 1, 1);
     }
 
     private IEnumerator waitAndRecover()
