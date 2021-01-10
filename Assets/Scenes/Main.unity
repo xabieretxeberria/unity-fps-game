@@ -989,8 +989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca407b3e51b478c43a14b058c239e991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 5
-  runningSpeed: 10
+  walkingSpeed: 4
+  runningSpeed: 12
 --- !u!114 &1836593098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalStamina: 100
   staminaCost: 50
-  staminaRecovery: 50
+  staminaRecovery: 30
   staminaBarRT: {fileID: 449884390}
 --- !u!1 &1848602015
 GameObject:

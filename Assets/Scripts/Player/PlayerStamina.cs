@@ -37,11 +37,10 @@ public class PlayerStamina : MonoBehaviour
     private void Update()
     {
         if (!available) return;
+
         if (playerRun.isRunning()) {
-            //currentStamina -= staminaCost * Time.deltaTime;
             currentStamina = Mathf.Max(0f, currentStamina - (staminaCost * Time.deltaTime));
         } else {
-            //currentStamina += staminaRecovery * Time.deltaTime;
             currentStamina = Mathf.Min(totalStamina, currentStamina + (staminaRecovery * Time.deltaTime));
         }
 
@@ -58,7 +57,12 @@ public class PlayerStamina : MonoBehaviour
     {
         available = false;
 
-        yield return null;
+        yield return new WaitForSeconds(3f);
+
+        while (currentStamina < totalStamina) {
+            currentStamina = Mathf.Min(totalStamina, currentStamina + (staminaRecovery * Time.deltaTime));
+            yield return null;
+        }
 
         available = true;
     }
