@@ -1,12 +1,51 @@
 fileFormatVersion: 2
-guid: 48c8e173447a91543abfef914ed71c85
+guid: 922095c071c68eb4186db327cbbf46a4
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
-  externalObjects: {}
+  internalIDToNameTable:
+  - first:
+      74: 1988171045948695719
+    second: PistolArmature|Fire
+  - first:
+      74: -2653128793843731477
+    second: PistolArmature|Reload
+  - first:
+      74: -8629809229752072323
+    second: PistolArmature|Slide
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkerMetal
+    second: {fileID: 2100000, guid: f74437a7e9f148048bb048dd5185d17b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magazine
+    second: {fileID: 2100000, guid: 6a27738aaab7b63409cf002afd9b4a13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: c002902cade50e64988cd5f594e9019f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 3c35b96ad3459b74183f8bafa95088e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Muzzle
+    second: {fileID: 2100000, guid: 5c699b02f442a084eb1feab6f52e3407, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 02cdf58b1fe1d984db30b9f3afdc37ed, type: 2}
   materials:
     materialImportMode: 1
-    materialName: 0
+    materialName: 1
     materialSearch: 1
     materialLocation: 1
   animations:
