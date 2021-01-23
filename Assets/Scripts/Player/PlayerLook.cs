@@ -37,17 +37,6 @@ public class PlayerLook : MonoBehaviour
         rotationY += Input.GetAxis("Mouse Y") * lookSpeed;
         rotationY = Mathf.Clamp(rotationY, yLimitBottom, yLimitTop);
 
-        updateCameraRotation();
-        updatePlayerRotation();
-    }
-
-    void updateCameraRotation()
-    {
-        playerCamera.transform.localRotation = Quaternion.Euler(-rotationY, 0, 0);
-    }
-
-    void updatePlayerRotation()
-    {
-        transform.localRotation = Quaternion.Euler(0, rotationX, 0);
+        transform.localRotation = Quaternion.Euler(-rotationY, rotationX, 0);
     }
 }
