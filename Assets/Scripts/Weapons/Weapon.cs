@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField]
     protected int magazineSize;
 
-    protected IShoot weaponShoot;
-    protected IReload weaponReload;
+    [SerializeField]
+    protected Transform shootOrigin;
+
+    protected AudioSource weaponAudioSource;
+
+    protected abstract void Shoot();
+
+    protected abstract void Reload();
 }

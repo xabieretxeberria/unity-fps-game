@@ -6,23 +6,31 @@ public class Pistol : Weapon
 {
     private void Awake()
     {
+        weaponAudioSource = GetComponent<AudioSource>();
+
         if (magazineSize == 0) magazineSize = 9;
-
-        weaponShoot = GetComponent<PistolShoot>();
-        weaponReload = GetComponent<PistolReload>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) {
-            weaponShoot.Shoot();
+            Shoot();
         }
+    }
+
+    protected override void Shoot()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        Physics.Raycast(ray.origin, ray.direction, out hit, 50);
+        Debug.DrawRay(ray.origin, ray.direction * 50, Color.red);
+
+        weaponAudioSource.Play();
+    }
+
+    protected override void Reload()
+    {
+
     }
 }
