@@ -20,11 +20,10 @@ public class Pistol : Weapon
 
     protected override void Shoot()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        Physics.Raycast(ray.origin, ray.direction, out hit, 50);
-        Debug.DrawRay(ray.origin, ray.direction * 50, Color.red);
+        Physics.Raycast(shootOrigin.position, shootOrigin.forward, out hit, 50);
+        Debug.DrawRay(shootOrigin.position, shootOrigin.forward * 50, Color.red);
 
         weaponAudioSource.Play();
     }
